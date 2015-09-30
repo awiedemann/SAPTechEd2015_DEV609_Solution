@@ -7,6 +7,7 @@
 		<script src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
+				data-sap-ui-xx-bindingSyntax="complex"
 				data-sap-ui-resourceroots='{"com.sap.teched": "./"}'
 				data-sap-ui-theme="sap_bluecrystal">
 		</script>
@@ -50,11 +51,11 @@
 				} 
 			
 				sap.ui.localResources("view");
-				var app = new sap.m.App({initialPage:"idapp"});
+				var app = new sap.m.App({initialPage:"idApp"});
 				
 				function startApp(context) {
 				
-					var page = sap.ui.view({id:"idapp", viewName:"com.sap.teched.view.app", type:sap.ui.core.mvc.ViewType.XML  });
+					var page = sap.ui.view({id:"idApp", viewName:"com.sap.teched.view.App", type:sap.ui.core.mvc.ViewType.XML  });
 					app.addPage(page);
 					app.placeAt("content");
 				}
@@ -72,7 +73,3 @@
 		<div id="content"></div>
 	</body>
 </html>
-	
-
-
-
