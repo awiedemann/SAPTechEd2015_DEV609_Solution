@@ -17,7 +17,8 @@
 					description="{location}"
 					info="{distance}"
 					infoState="{reachable}"
-					type="Navigation"/>
+					type="Navigation"
+					press="goToDetails"/>
 			</List>
 		</content>
 	</Page>

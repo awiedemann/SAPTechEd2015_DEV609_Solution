@@ -8,7 +8,11 @@
             "location": "Hall 1",
             "pictureURL": "https://sapui5.hana.ondemand.com/test-resources/sap/ui/demokit/explored/img/HT-6100-large.jpg",
             "reachable": "None",
-            "distance": "Not in Reach"
+            "distance": "Not in Reach",
+            "numberOfMonitoringEvents": 0,
+            "numberOfUniqueMonitoringDevices": 0,
+            "numberOfCheckinEvents": 0,
+            "numberOfUniqueCheckinDevices": 0
         },
         {
             "identifier": "DEV609 Region 2",
@@ -18,7 +22,11 @@
             "location": "Hall 1",
             "pictureURL": "https://sapui5.hana.ondemand.com/test-resources/sap/ui/demokit/explored/img/HT-6100-large.jpg",
             "reachable": "Success",
-            "distance": "In Reach"
+            "distance": "In Reach",
+            "numberOfMonitoringEvents": 0,
+            "numberOfUniqueMonitoringDevices": 0,
+            "numberOfCheckinEvents": 0,
+            "numberOfUniqueCheckinDevices": 0
         },
         {
             "identifier": "DEV609 Region 3",
@@ -28,7 +36,11 @@
             "location": "Hall 1",
             "pictureURL": "https://sapui5.hana.ondemand.com/test-resources/sap/ui/demokit/explored/img/HT-6100-large.jpg",
             "reachable": "None",
-            "distance": "Not in Reach"
+            "distance": "Not in Reach",
+            "numberOfMonitoringEvents": 0,
+            "numberOfUniqueMonitoringDevices": 0,
+            "numberOfCheckinEvents": 0,
+            "numberOfUniqueCheckinDevices": 0
         },
         {
             "identifier": "DEV609 Region 4",
@@ -38,7 +50,11 @@
             "location": "Hall 2",
             "pictureURL": "https://sapui5.hana.ondemand.com/test-resources/sap/ui/demokit/explored/img/HT-6100-large.jpg",
             "reachable": "None",
-            "distance": "Not in Reach"
+            "distance": "Not in Reach",
+            "numberOfMonitoringEvents": 0,
+            "numberOfUniqueMonitoringDevices": 0,
+            "numberOfCheckinEvents": 0,
+            "numberOfUniqueCheckinDevices": 0
         },
         {
             "identifier": "DEV609 Region 5",
@@ -48,7 +64,11 @@
             "location": "Hall 2",
             "pictureURL": "https://sapui5.hana.ondemand.com/test-resources/sap/ui/demokit/explored/img/HT-6100-large.jpg",
             "reachable": "None",
-            "distance": "Not in Reach"
+            "distance": "Not in Reach",
+            "numberOfMonitoringEvents": 0,
+            "numberOfUniqueMonitoringDevices": 0,
+            "numberOfCheckinEvents": 0,
+            "numberOfUniqueCheckinDevices": 0
         }
     ]
 }

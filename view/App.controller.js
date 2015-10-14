@@ -81,6 +81,15 @@ sap.ui.controller("com.sap.teched.view.App", {
         }else{
             sap.m.MessageToast.show("Your browser doesn\'t support geolocation.");
         }
+	},
+	
+	goToDetails: function(oEvent){
+		//Get detail view and add current binding context
+		var app = sap.ui.getCore().byId("idApp");
+		var detailView = sap.ui.getCore().byId("idDetailView");
+		var bindingContext = oEvent.getSource().getBindingContext();
+		detailView.setBindingContext(bindingContext);
+        app.to("idDetailView");
 	}
 
 });

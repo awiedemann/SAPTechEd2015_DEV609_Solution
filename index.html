@@ -51,12 +51,15 @@
 				} 
 			
 				sap.ui.localResources("view");
-				var app = new sap.m.App({initialPage:"idApp"});
+				var app = new sap.m.App("idApp", {initialPage:"idAppView"});
 				
 				function startApp(context) {
 				
-					var page = sap.ui.view({id:"idApp", viewName:"com.sap.teched.view.App", type:sap.ui.core.mvc.ViewType.XML  });
+					var page = sap.ui.view({id:"idAppView", viewName:"com.sap.teched.view.App", type:sap.ui.core.mvc.ViewType.XML  });
 					app.addPage(page);
+					//Add detail page to application
+					var pageDetail= sap.ui.view({id:"idDetailView", viewName:"com.sap.teched.view.Detail", type:sap.ui.core.mvc.ViewType.XML  });
+					app.addPage(pageDetail);
 					app.placeAt("content");
 				}
 				if (window.cordova || getUrlParameterName("companionbuster")) {
