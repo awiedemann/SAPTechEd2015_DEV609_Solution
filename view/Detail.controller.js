@@ -40,10 +40,29 @@ sap.ui.controller("com.sap.teched.view.Detail", {
 		app.back();
 	},
 	
+	/*global device*/
+	
 	onCheckIn: function(){
 		var bindingContext = sap.ui.getCore().byId("idDetailView").getBindingContext();
 		if(bindingContext.getProperty("reachable") === "Success"){
-            sap.m.MessageToast.show("Check in to " + bindingContext.getProperty("identifier") + " successful");
+			var event = {
+	            "eventType": "CHECKIN",
+	            "deviceUUID": device.uuid,
+	            "timestamp": Date.now(),
+	            "region": bindingContext.getProperty("_links/self/href")
+	        };
+	        
+	        //Send checkin event to server
+	        $.ajax({
+	            type: "POST",
+	            url: "https://dev609ac8d8ce9a.hana.ondemand.com/resources/events",
+	            data: JSON.stringify(event),
+	            contentType: "application/json; charset=utf-8",
+	            dataType: "json",
+	            success: function(){
+	            	sap.m.MessageToast.show("Check in to " + bindingContext.getProperty("identifier") + " successful");
+	            }
+	        });
         }else{
         	sap.m.MessageToast.show("Check in is currently not possible as " + bindingContext.getProperty("identifier") + " is not in reach.");
         }
