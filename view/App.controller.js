@@ -47,7 +47,7 @@ sap.ui.controller("com.sap.teched.view.App", {
             dataType: "json",
             success: function(data){
             	var oModel = new sap.ui.model.json.JSONModel(data);
-            	self.getView().setModel(oModel);
+            	sap.ui.getCore().setModel(oModel);
             }
         });
 	},
