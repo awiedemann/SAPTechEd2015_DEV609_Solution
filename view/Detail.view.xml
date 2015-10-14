@@ -1,0 +1,51 @@
+<core:View controllerName="com.sap.teched.view.Detail" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page 
+		title="Location Details"
+		showNavButton="true"
+		navButtonPress="goBack">
+		<headerContent>
+			<Button
+				id="checkInButton"
+				icon="sap-icon://complete"
+				press="onCheckIn" />
+		</headerContent>
+		<content>
+			<Image
+				id="locationImage"
+				src="{pictureURL}"
+				width="100%">
+			</Image>
+			<List
+				id="detailList"
+				enableBusyIndicator="true">
+				<items>
+					<StandardListItem
+					title="Name"
+					description="{identifier}"/>
+					<StandardListItem
+					title="Description"
+					description="{description}"/>
+					<StandardListItem
+					title="Location"
+					description="{location}"/>
+					<StandardListItem
+					title="Distance"
+					description="{distance}"/>
+					<StandardListItem
+					title="Monitoring Events (Unique Devices)"
+					description="{numberOfMonitoringEvents} ({numberOfUniqueMonitoringDevices})"/>
+					<StandardListItem
+					title="Check-In Events (Unique Devices)"
+					description="{numberOfCheckinEvents} ({numberOfUniqueCheckinDevices})"/>
+					<StandardListItem
+					title="Beacon UUID"
+					description="{uuid}"/>
+					<StandardListItem
+					title="Beacon Major"
+					description="{major}"/>
+				</items>
+			</List>
+		</content>
+	</Page>
+</core:View>

@@ -2,6 +2,9 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
 	<Page title="Context Aware App">
 		<content>
+			<PullToRefresh
+				id="pullToRefresh"
+				refresh="handleRefresh" />
 			<Image
 				id="geolocationImage"
 				src="https://maps.googleapis.com/maps/api/staticmap?center=49.293344,8.641965&amp;zoom=10&amp;size=300x100&amp;scale=2"
@@ -17,7 +20,8 @@
 					description="{location}"
 					info="{distance}"
 					infoState="{reachable}"
-					type="Navigation"/>
+					type="Navigation"
+					press="goToDetails"/>
 			</List>
 		</content>
 	</Page>

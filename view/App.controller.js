@@ -40,14 +40,18 @@ sap.ui.controller("com.sap.teched.view.App", {
 	//	}
 	
 	getRegions: function(){
+		//Get region data from backend
 		$.ajax({
             type: "GET",
-            url: "regions.json",
+            url: "https://dev609ac8d8ce9a.hana.ondemand.com/resources/regions",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(data){
-            	var oModel = new sap.ui.model.json.JSONModel(data);
+        		//Adapt model to remote data
+            	var oModel = new sap.ui.model.json.JSONModel(data._embedded);
             	sap.ui.getCore().setModel(oModel);
+            	//Hide pull to refresh once data is received
+            	sap.ui.getCore().byId("idAppView--pullToRefresh").hide();
             }
         });
 	},
@@ -81,6 +85,20 @@ sap.ui.controller("com.sap.teched.view.App", {
         }else{
             sap.m.MessageToast.show("Your browser doesn\'t support geolocation.");
         }
+	},
+	
+	goToDetails: function(oEvent){
+		//Get detail view and add current binding context
+		var app = sap.ui.getCore().byId("idApp");
+		var detailView = sap.ui.getCore().byId("idDetailView");
+		var bindingContext = oEvent.getSource().getBindingContext();
+		detailView.setBindingContext(bindingContext);
+        app.to("idDetailView");
+	},
+	
+	handleRefresh: function(){
+		this.getRegions();
+		this.getGeoLocation();
 	}
 
 });
