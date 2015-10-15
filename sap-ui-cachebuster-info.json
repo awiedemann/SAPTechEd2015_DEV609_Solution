@@ -1,9 +1,10 @@
 {
-  "view/Detail.controller.js": "1444855286000",
-  "view/App.view.xml": "1444854330000",
-  "view/App.controller.js": "1444854906000",
-  "view/Detail.view.xml": "1444852571000",
-  "devapp.js": "1443452945000",
+  "devapp.js": "",
+  "devlogon.js": "",
   "index.html": "1443628231000",
-  "regions.json": "1444762900000"
+  "regions.json": "1444762900000",
+  "view/App.controller.js": "1444946444000",
+  "view/App.view.xml": "1444857804000",
+  "view/Detail.controller.js": "1444855286000",
+  "view/Detail.view.xml": "1444852571000"
 }

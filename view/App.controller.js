@@ -56,7 +56,7 @@ sap.ui.controller("com.sap.teched.view.App", {
             	var oModel = new sap.ui.model.json.JSONModel(data._embedded);
             	sap.ui.getCore().setModel(oModel);
             	//Start monitoring and ranging for regions
-                self.startMonitoringAndRanging(data._embedded.regions);
+                self.startMonitoring(data._embedded.regions);
             	//Hide pull to refresh once data is received
             	sap.ui.getCore().byId("idAppView--pullToRefresh").hide();
             }
@@ -104,22 +104,20 @@ sap.ui.controller("com.sap.teched.view.App", {
 	},
 	
 	handleRefresh: function(){
-		this.stopMonitoringAndRanging();
+		this.stopMonitoring();
 		this.getRegions();
 		this.getGeoLocation();
 	},
 	
-	startMonitoringAndRanging: function(regions){
+	startMonitoring: function(regions){
         for(var i = 0; i < regions.length; i++){
             var region = regions[i];
             //Start monitoring for beacons in region
             estimote.beacons.startMonitoringForRegion(region, this.onBeaconMonitored, this.onMonitoringError);
-            //Start ranging for beacons in region
-            estimote.beacons.startRangingBeaconsInRegion(region, this.onBeaconsRanged, this.onRangingError);
         }
     },
 
-    stopMonitoringAndRanging: function(){
+    stopMonitoring: function(){
         var regions = sap.ui.getCore().getModel().getData();
         for(var i = 0; i < regions.length; i++){
             var region = regions[i];
@@ -167,24 +165,6 @@ sap.ui.controller("com.sap.teched.view.App", {
 
 	onMonitoringError: function(error) {
         sap.m.MessageToast.show("Start monitoring error: " + error);
-	},
-
-	onBeaconsRanged: function(beaconInfo){
-        beaconInfo.beacons.sort(function(beacon1, beacon2) {
-            return beacon1.distance > beacon2.distance;
-        });
-
-        for(var x = 0; x < sap.ui.getCore().getModel().getProperty("/regions").length; x++){
-            if(sap.ui.getCore().getModel().getProperty("/regions/" + x + "/major") === beaconInfo.region.major){
-                if(sap.ui.getCore().getModel().getProperty("/regions/" + x + "/reachable") === "Success"){
-                    sap.ui.getCore().getModel().setProperty("/regions/" + x + "/distance", "In Reach (" + (Math.round(beaconInfo.beacons[0].distance * 100) / 100).toFixed(2) + "m)");
-                }
-            }
-        }
-	},
-
-	onRangingError: function(error) {
-        sap.m.MessageToast.show("Start ranging error: " + error);
 	}
 
 });
