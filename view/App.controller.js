@@ -53,7 +53,7 @@ sap.ui.controller("com.sap.teched.view.App", {
         		//Adapt model to remote data
             	var oModel = new sap.ui.model.json.JSONModel(data._embedded);
             	sap.ui.getCore().setModel(oModel);
-            	//Start monitoring and ranging for regions
+            	//Start monitoring for regions
                 self.startMonitoring(data._embedded.regions);
             	//Hide pull to refresh once data is received
             	sap.ui.getCore().byId("idAppView--pullToRefresh").hide();
@@ -123,8 +123,6 @@ sap.ui.controller("com.sap.teched.view.App", {
             var region = regions[i];
             //Stop monitoring for beacons in region
             estimote.beacons.stopMonitoringForRegion(region, null, null);
-            //Stop ranging for beacons in region
-            estimote.beacons.stopRangingBeaconsInRegion(region, null, null);
         }
     },
 
