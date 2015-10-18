@@ -1,10 +1,11 @@
 {
+  "view/App.controller.js": "1445134782000",
+  "view/App.view.xml": "1445133533000",
+  "view/Detail.view.xml": "1445133347000",
+  "view/Detail.controller.js": "1445133533000",
   "devapp.js": "",
+  "index.html": "1445133347000",
   "devlogon.js": "",
-  "index.html": "1443628231000",
-  "regions.json": "1444762900000",
-  "view/App.controller.js": "1444946444000",
-  "view/App.view.xml": "1444857804000",
-  "view/Detail.controller.js": "1444855286000",
-  "view/Detail.view.xml": "1444852571000"
+  "regions.json": "1445133126000",
+  "preview_hidden.html": "1445134020000"
 }
