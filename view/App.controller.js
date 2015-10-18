@@ -42,7 +42,6 @@ sap.ui.controller("com.sap.teched.view.App", {
 		$.ajax({
             type: "GET",
             url: "regions.json",
-            contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(data){
             	var oModel = new sap.ui.model.json.JSONModel(data);
