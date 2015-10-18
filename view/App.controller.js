@@ -43,7 +43,6 @@ sap.ui.controller("com.sap.teched.view.App", {
 		$.ajax({
             type: "GET",
             url: "regions.json",
-            contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(data){
             	var oModel = new sap.ui.model.json.JSONModel(data);
@@ -53,6 +52,8 @@ sap.ui.controller("com.sap.teched.view.App", {
 	},
 	
 	getGeoLocation: function() {
+		//Create reference self to the original this
+	var self = this;
         var options = {
             enableHighAccuracy: true,
             timeout: 100000,
@@ -61,10 +62,10 @@ sap.ui.controller("com.sap.teched.view.App", {
 		
 		//Success callback for current geolocation
         function success(pos) {
-            var crd = pos.coords;
+            var coordinates = pos.coords;
 
-            var latitude = Math.round(crd.latitude * 1000000) / 1000000;
-            var longitude = Math.round(crd.longitude * 1000000) / 1000000;
+            var latitude = Math.round(coordinates.latitude * 1000000) / 1000000;
+            var longitude = Math.round(coordinates.longitude * 1000000) / 1000000;
             var center = "center=" + latitude + "," + longitude;
             var marker = "markers=" + latitude + "," + longitude;
             self.getView().byId("geolocationImage").setSrc("https://maps.googleapis.com/maps/api/staticmap?" + center + "&" + marker + "&zoom=10&size=300x100&scale=2");
