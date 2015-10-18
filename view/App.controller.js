@@ -52,7 +52,7 @@ sap.ui.controller("com.sap.teched.view.App", {
 	
 	getGeoLocation: function() {
 		//Create reference self to the original this
-	var self = this;
+		var self = this;
         var options = {
             enableHighAccuracy: true,
             timeout: 100000,
